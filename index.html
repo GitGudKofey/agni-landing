@@ -121,6 +121,7 @@ details[data-faq][open] [data-ans]{max-height:420px;opacity:1;margin-top:14px}
         <video id="hero-vid" src="assets/hero-video.webm" autoplay="" muted="" loop="" playsinline="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
         <div style="{{ heroDimStyle }}"></div>
       </div>
+      <button type="button" onClick="{{ heroVidToggle }}" aria-label="Пауза / воспроизведение" style="{{ heroVidBtnStyle }}" style-hover="background:rgba(0,0,0,.6)"><i class="{{ heroVidIcon }}"></i></button>
 
       <!-- fullscreen video modal -->
       <div id="hero-modal" style="position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;background:rgba(2,6,7,.93);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:48px">
@@ -163,6 +164,31 @@ details[data-faq][open] [data-ans]{max-height:420px;opacity:1;margin-top:14px}
       <div style="position:absolute;inset:0;background:rgba(0,0,0,.5)"></div>
       <div style="position:absolute;top:0;left:0;width:100%;height:16%;z-index:2;pointer-events:none;backdrop-filter:blur(25px) saturate(1.5);-webkit-backdrop-filter:blur(25px) saturate(1.5);-webkit-mask-image:linear-gradient(to bottom,#000 70%,transparent 100%);mask-image:linear-gradient(to bottom,#000 70%,transparent 100%)"></div>
       <div style="position:absolute;bottom:0;left:0;width:100%;height:16%;z-index:2;pointer-events:none;backdrop-filter:blur(25px) saturate(1.5);-webkit-backdrop-filter:blur(25px) saturate(1.5);-webkit-mask-image:linear-gradient(to top,#000 70%,transparent 100%);mask-image:linear-gradient(to top,#000 70%,transparent 100%)"></div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- CINEMA VARIANT -->
+  <sc-if value="{{ heroCinema }}" hint-placeholder-val="{{ false }}">
+  <div style="position:relative;z-index:2;width:100%;height:calc(100vh - 96px);min-height:560px;overflow:hidden">
+    <video id="hero-vid-cinema" src="assets/hero-agni.mp4" autoplay="" muted="" playsinline="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain"></video>
+    <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(115% 85% at 50% 44%,transparent 30%,rgba(0,0,0,.42) 72%,rgba(0,0,0,.82) 100%)"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.18) 0%,transparent 34%,transparent 54%,rgba(0,0,0,.74) 100%);pointer-events:none"></div>
+    <div style="position:absolute;left:0;right:0;bottom:clamp(32px,6vh,64px);z-index:2;padding:0 clamp(20px,5vw,40px)">
+      <div style="max-width:1600px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap">
+        <div style="max-width:620px">
+          <span style="display:block;margin:0 0 14px;font:600 18px Roboto,sans-serif;letter-spacing:.04em;color:#FFFFFF;text-shadow:0 2px 18px rgba(0,0,0,.6)">Сетевые фильтры Agni</span>
+          <h1 style="margin:0;font:700 clamp(28px,4vw,52px)/1.08 Montserrat,sans-serif;letter-spacing:-1.5px;background:linear-gradient(100deg,#FFFFFF 22%,#8FC3BC 62%,#6FA9A1 100%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none">Продуманная защита дорогих сетапов</h1>
+          <p style="margin:18px 0 0;max-width:520px;font:400 18px/1.55 Roboto,sans-serif;color:#FFFFFF;text-shadow:0 2px 18px rgba(0,0,0,.6)">Подключай ПК и периферию в один мощный сетевой фильтр с механизмом безопасности и продуманной компоновкой для геймерского стола.</p>
+        </div>
+        <div style="flex-shrink:0;display:flex;align-items:center;gap:16px;padding:10px 10px 10px 22px;border-radius:100px;background:rgba(30,30,32,.72);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);box-shadow:0 16px 44px -18px rgba(0,0,0,.7)">
+          <div style="display:flex;flex-direction:column;line-height:1.15">
+            <span style="font:400 13px Roboto,sans-serif;color:#9FB2B1">от</span>
+            <span style="font:700 20px Montserrat,sans-serif;color:#F0FAF9;letter-spacing:-.3px">3 389 ₽</span>
+          </div>
+          <a href="#compare" style="display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 26px;border-radius:100px;background:#0F9F94;color:#FFFFFF;font:600 16px Roboto,sans-serif;text-decoration:none;transition:background .2s" style-hover="background:#12B7AC">Подобрать сетевой фильтр</a>
+        </div>
+      </div>
     </div>
   </div>
   </sc-if>
@@ -612,9 +638,9 @@ details[data-faq][open] [data-ans]{max-height:420px;opacity:1;margin-top:14px}
   </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:920},&quot;heroVariant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;immersive&quot;,&quot;split&quot;],&quot;default&quot;:&quot;immersive&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;showGrid&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Тема&quot;},&quot;scanlines&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Тема&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:920},&quot;heroVariant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;immersive&quot;,&quot;cinema&quot;,&quot;split&quot;],&quot;default&quot;:&quot;cinema&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
-  state = { scenario: 0, compare: 0, gw: 'lg', navOpen: false, cmpA: 0, cmpB: 6, triA: 0, triB: 2, triC: 6, navVisible: true, triStuck: false, triOpen: null, isTouch: false };
+  state = { scenario: 0, compare: 0, gw: 'lg', navOpen: false, cmpA: 0, cmpB: 6, triA: 0, triB: 2, triC: 6, navVisible: true, triStuck: false, triOpen: null, isTouch: false, heroVidPaused: false };
 
   componentDidMount() {
     this._isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
@@ -719,6 +745,8 @@ class Component extends DCLogic {
     const modal = document.getElementById('hero-modal');
     const full = document.getElementById('hero-vid-full');
     const closeBtn = document.getElementById('hero-modal-close');
+    const cine = document.getElementById('hero-vid-cinema');
+    if (cine) { cine.muted = true; cine.loop = false; cine.play().catch(() => {}); }
     if (vid) {
       vid.muted = true;
       vid.loop = true;
@@ -1174,7 +1202,7 @@ class Component extends DCLogic {
     const heroContentStyle = heroMob
       ? 'display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;padding:26px 14px 6px'
       : 'position:absolute;left:0;right:0;bottom:0;z-index:3;padding:0 clamp(20px,5vw,48px) clamp(28px,4vw,44px);display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(14px,2vw,20px)';
-    const heroH1Style = 'margin:0;font:800 clamp(26px,4.6vw,52px)/1.08 Montserrat,sans-serif;color:#F0FAF9;letter-spacing:-1px;max-width:none;text-shadow:0 6px 44px rgba(0,0,0,.6)';
+    const heroH1Style = 'margin:0;font:700 clamp(26px,4.6vw,52px)/1.08 Montserrat,sans-serif;color:#F0FAF9;letter-spacing:-1px;max-width:none;text-shadow:0 6px 44px rgba(0,0,0,.6)';
     const heroSubStyle = 'margin:0;max-width:680px;font:400 clamp(15px,1.5vw,18px)/1.55 Roboto,sans-serif;color:#DCEAE9;text-shadow:0 2px 22px rgba(0,0,0,.7)';
     const heroBtnStyle = heroMob
       ? 'display:inline-flex;align-items:center;justify-content:center;height:54px;padding:0 28px;border-radius:14px;font:600 16px Roboto,sans-serif;width:100%;max-width:420px'
@@ -1238,12 +1266,16 @@ class Component extends DCLogic {
       duoCols,
       duoDevices,
       duoSelStyle,
-      heroImmersive: variant !== 'split',
+      heroImmersive: variant !== 'split' && variant !== 'cinema',
       heroSplit: variant === 'split',
+      heroCinema: variant === 'cinema',
       heroFrameStyle,
       heroVideoBoxStyle,
       heroDimStyle,
       heroPlayStyle,
+      heroVidToggle: () => { const v = document.getElementById('hero-vid'); if (!v) return; if (v.paused) { v.play(); this.setState({ heroVidPaused: false }); } else { v.pause(); this.setState({ heroVidPaused: true }); } },
+      heroVidIcon: this.state.heroVidPaused ? 'ph ph-play' : 'ph ph-pause',
+      heroVidBtnStyle: 'position:absolute;bottom:clamp(16px,2vw,26px);right:clamp(16px,2vw,26px);z-index:5;width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,.42);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:none;cursor:pointer;color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;transition:background .2s',
       heroPlaySvgStyle,
       heroContentStyle,
       heroH1Style,

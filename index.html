@@ -178,7 +178,7 @@ details[data-faq][open] [data-ans]{max-height:420px;opacity:1;margin-top:14px}
       <div style="max-width:1600px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap">
         <div style="max-width:620px">
           <span style="display:block;margin:0 0 14px;font:600 18px Roboto,sans-serif;letter-spacing:.04em;color:#FFFFFF;text-shadow:0 2px 18px rgba(0,0,0,.6)">Сетевые фильтры Agni</span>
-          <h1 style="margin:0;font:700 clamp(28px,4vw,52px)/1.08 Montserrat,sans-serif;letter-spacing:-1.5px;background:linear-gradient(100deg,#FFFFFF 22%,#8FC3BC 62%,#6FA9A1 100%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none">Продуманная защита дорогих сетапов</h1>
+          <h1 style="margin:0;font:700 clamp(28px,4vw,52px)/1.08 Montserrat,sans-serif;letter-spacing:-1.5px;background:linear-gradient(100deg,#FFFFFF 18%,#5FE0D2 58%,#0F9F94 100%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none">Продуманная защита дорогих сетапов</h1>
           <p style="margin:18px 0 0;max-width:520px;font:400 18px/1.55 Roboto,sans-serif;color:#FFFFFF;text-shadow:0 2px 18px rgba(0,0,0,.6)">Подключай ПК и периферию в один мощный сетевой фильтр с механизмом безопасности и продуманной компоновкой для геймерского стола.</p>
         </div>
         <div style="flex-shrink:0;display:flex;align-items:center;gap:16px;padding:10px 10px 10px 22px;border-radius:100px;background:rgba(30,30,32,.72);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);box-shadow:0 16px 44px -18px rgba(0,0,0,.7)">
@@ -220,7 +220,7 @@ details[data-faq][open] [data-ans]{max-height:420px;opacity:1;margin-top:14px}
           </div>
         </sc-for>
       </div>
-      <div style="display:none;position:relative;width:100%;max-width:540px;height:clamp(96px,16vh,150px);flex-shrink:0">
+      <div style="position:relative;width:100%;max-width:540px;height:clamp(96px,16vh,150px);flex-shrink:0">
         <sc-for list="{{ scenarios }}" as="s" hint-placeholder-count="4">
           <div style="{{ s.textCardStyleT }}">
             <h3 style="{{ s.titleStyle }}">{{ s.title }}</h3>
@@ -232,7 +232,7 @@ details[data-faq][open] [data-ans]{max-height:420px;opacity:1;margin-top:14px}
         <div style="pointer-events:auto;height:60px;display:flex;align-items:center;gap:10px;padding:0 4px;border-radius:100px;background:transparent">
           <sc-for list="{{ scenarios }}" as="s" hint-placeholder-count="4">
             <button type="button" onClick="{{ s.dotClick }}" title="{{ s.title }}" aria-label="{{ s.title }}" style="{{ s.dotStyle }}" style-hover="opacity:1;background:rgba(255,255,255,.1)">
-              <image-slot id="scene-thumb-t-{{ s.idx }}" src="{{ s.img }}" fit="contain" style="{{ s.thumbStyle }}" shape="rect" placeholder=""></image-slot>
+              <image-slot id="scene-thumb-t-{{ s.idx }}" src="{{ s.thumb }}" fit="contain" style="{{ s.thumbStyle }}" shape="rect" placeholder=""></image-slot>
             </button>
           </sc-for>
         </div>
@@ -254,7 +254,36 @@ details[data-faq][open] [data-ans]{max-height:420px;opacity:1;margin-top:14px}
   <sc-if value="{{ scDesktop }}" hint-placeholder-val="{{ true }}">
   <div style="position:relative;z-index:1">
     <div style="position:sticky;top:clamp(52px,7vh,88px);height:calc(100vh - clamp(52px,7vh,88px));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(14px,2.4vh,40px);padding-top:clamp(96px,14vh,150px);padding-bottom:clamp(80px,11vh,118px);pointer-events:none;z-index:2">
-      <h2 style="position:absolute;top:clamp(10px,2vh,24px);left:0;right:0;margin:0;text-align:center;font:700 clamp(30px,4.8vw,58px)/1.04 Montserrat,sans-serif;color:#F0FAF9;letter-spacing:-1.5px;text-wrap:balance;pointer-events:none">Один центр питания<br>для всего сетапа</h2>
+      <h2 id="sc-heading-d" style="position:absolute;top:clamp(10px,2vh,24px);left:0;right:0;margin:0;text-align:center;font:700 clamp(30px,4.8vw,58px)/1.04 Montserrat,sans-serif;color:#F0FAF9;letter-spacing:-1.5px;text-wrap:balance;pointer-events:none">Один центр питания<br>для всего сетапа</h2>
+      <!-- SLIDE 1: label left, two device views slide in from both edges, specs right -->
+      <div style="{{ scene0Style }}">
+        <div style="width:100%;max-width:100%;display:flex;flex-direction:column;gap:clamp(10px,1.8vh,26px)">
+          <div style="display:flex;align-items:center;justify-content:flex-end;gap:clamp(24px,3vw,64px)">
+            <div id="sc0-label" style="flex-shrink:0;max-width:360px">
+              <div style="font:700 22px Montserrat,sans-serif;letter-spacing:-.3px;color:#F0FAF9">TP-FI3U5E-C</div>
+              <div style="margin-top:12px;font:600 32px/1.18 Montserrat,sans-serif;letter-spacing:-.4px;background:linear-gradient(100deg,#FFFFFF 18%,#5FE0D2 58%,#0F9F94 100%);-webkit-background-clip:text;background-clip:text;color:transparent">Умное<br>управление сетапом</div>
+            </div>
+            <div style="{{ dev0RightStyle }}">
+              <image-slot id="scene0-img-right" src="assets/connect-right.png" fit="contain" style="width:100%;height:100%;background:transparent" shape="rect" placeholder="Изображение устройства"></image-slot>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:flex-start;gap:clamp(24px,3vw,64px)">
+            <div style="{{ dev0LeftStyle }}">
+              <image-slot id="scene0-img-left" src="assets/connect-left.png" fit="contain" style="width:100%;height:100%;background:transparent" shape="rect" placeholder="Изображение устройства"></image-slot>
+            </div>
+            <div style="flex-shrink:0;display:flex;flex-direction:column;gap:clamp(20px,3vh,34px)">
+              <div>
+                <div style="font:700 clamp(30px,4.4vw,50px)/1 Montserrat,sans-serif;color:#0F9F94;letter-spacing:-1px;white-space:nowrap">5</div>
+                <div style="margin-top:6px;font:400 18px Roboto,sans-serif;color:#8FA3A3;line-height:1.3">кнопок управления</div>
+              </div>
+              <div>
+                <div style="font:700 clamp(30px,4.4vw,50px)/1 Montserrat,sans-serif;color:#0F9F94;letter-spacing:-1px;white-space:nowrap">2</div>
+                <div style="margin-top:6px;font:400 18px Roboto,sans-serif;color:#8FA3A3;line-height:1.3">группы питания</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div style="position:relative;align-self:flex-start;width:100vw;margin-left:calc(50% - 50vw);height:min(56vh,560px);display:flex;align-items:center;justify-content:flex-start;gap:clamp(24px,3vw,64px);flex-shrink:0">
         <div style="position:relative;flex:0 0 auto;height:min(56vh,560px,calc((100vw - 360px) / 2.566));aspect-ratio:1463 / 570">
           <sc-for list="{{ scenarios }}" as="s" hint-placeholder-count="4">
@@ -276,7 +305,7 @@ details[data-faq][open] [data-ans]{max-height:420px;opacity:1;margin-top:14px}
           </sc-for>
         </div>
       </div>
-      <div style="display:none;position:relative;width:100%;max-width:720px;height:clamp(96px,15vh,168px)">
+      <div style="position:relative;width:100%;max-width:720px;height:clamp(96px,15vh,168px)">
         <sc-for list="{{ scenarios }}" as="s" hint-placeholder-count="4">
           <div style="{{ s.textCardStyle }}">
             <h3 style="{{ s.titleStyle }}">{{ s.title }}</h3>
@@ -288,7 +317,7 @@ details[data-faq][open] [data-ans]{max-height:420px;opacity:1;margin-top:14px}
         <div style="pointer-events:auto;height:60px;display:flex;align-items:center;gap:10px;padding:0 4px;border-radius:100px;background:transparent">
           <sc-for list="{{ scenarios }}" as="s" hint-placeholder-count="4">
             <button type="button" onClick="{{ s.dotClick }}" title="{{ s.title }}" aria-label="{{ s.title }}" style="{{ s.dotStyle }}" style-hover="opacity:1;background:rgba(255,255,255,.1)">
-              <image-slot id="scene-thumb-d-{{ s.idx }}" src="{{ s.img }}" fit="contain" style="{{ s.thumbStyle }}" shape="rect" placeholder=""></image-slot>
+              <image-slot id="scene-thumb-d-{{ s.idx }}" src="{{ s.thumb }}" fit="contain" style="{{ s.thumbStyle }}" shape="rect" placeholder=""></image-slot>
             </button>
           </sc-for>
         </div>
@@ -640,7 +669,7 @@ details[data-faq][open] [data-ans]{max-height:420px;opacity:1;margin-top:14px}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:920},&quot;heroVariant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;immersive&quot;,&quot;cinema&quot;,&quot;split&quot;],&quot;default&quot;:&quot;cinema&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
-  state = { scenario: 0, compare: 0, gw: 'lg', navOpen: false, cmpA: 0, cmpB: 6, triA: 0, triB: 2, triC: 6, navVisible: true, triStuck: false, triOpen: null, isTouch: false, heroVidPaused: false };
+  state = { scenario: 0, compare: 0, gw: 'lg', navOpen: false, cmpA: 0, cmpB: 6, triA: 0, triB: 2, triC: 6, navVisible: true, triStuck: false, triOpen: null, isTouch: false, heroVidPaused: false, connectPlayed: false };
 
   componentDidMount() {
     this._isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
@@ -801,6 +830,20 @@ class Component extends DCLogic {
     window.addEventListener('scroll', this._sceneScroll, { passive: true });
     this._sceneScroll();
 
+    // SLIDE 1: play the two-device slide-in once, when the bottom of the viewport first sees the label
+    const sc0Label = document.getElementById('sc0-label');
+    if (sc0Label && 'IntersectionObserver' in window) {
+      this._connectIO = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting && !this.state.connectPlayed) {
+            this.setState({ connectPlayed: true });
+            this._connectIO.disconnect();
+          }
+        });
+      }, { threshold: 0 });
+      this._connectIO.observe(sc0Label);
+    }
+
     // 3D tilt for advantages cards — idle "living" motion + pointer override
     const grid = document.getElementById('adv-grid');
     if (grid) {
@@ -846,6 +889,7 @@ class Component extends DCLogic {
     if (this._onDocDown) document.removeEventListener('mousedown', this._onDocDown);
     if (this._heroEsc) window.removeEventListener('keydown', this._heroEsc);
     if (this._sceneScroll) window.removeEventListener('scroll', this._sceneScroll);
+    if (this._connectIO) this._connectIO.disconnect();
     if (this._heroFsChange) {
       document.removeEventListener('fullscreenchange', this._heroFsChange);
       document.removeEventListener('webkitfullscreenchange', this._heroFsChange);
@@ -864,13 +908,13 @@ class Component extends DCLogic {
   renderVals() {
     const variant = this.props.heroVariant ?? 'immersive';
     const base = [
-      { n: '01', icon: 'ph-sliders-horizontal', tag: 'групповое питание', title: 'Умное управление сетапом', model: 'TP-FI3U5E-C', img: 'assets/slide-1.png',
+      { n: '01', icon: 'ph-sliders-horizontal', tag: 'групповое питание', title: 'Умное управление сетапом', model: 'TP-FI3U5E-C', img: 'assets/slide-1.png', thumb: 'assets/cmp-fi3u5e.png',
         body: 'Отключайте монитор, колонки или консоль отдельно, не вынимая вилок из розеток. Или разделите сетап на игровые и периферийные устройства и управляйте группами оборудования.' },
-      { n: '02', icon: 'ph-game-controller', tag: 'до 6 устройств', title: 'Игровые и консольные сетапы', model: 'TP-FS8E', img: 'assets/slide-2.png',
+      { n: '02', icon: 'ph-game-controller', tag: 'до 6 устройств', title: 'Игровые и консольные сетапы', model: 'TP-FS8E', img: 'assets/slide-2.png', thumb: 'assets/cmp-fs8e.png',
         body: 'Подключите ПК или консоль, монитор, роутер, колонки и зарядные устройства в одном месте. Контроль правильного заземления — безопасность игрового места. Версии с USB и без USB.' },
-      { n: '03', icon: 'ph-broadcast', tag: 'до 8 устройств', title: 'Мощные сетапы и стриминг', model: 'TP-FS6E', img: 'assets/slide-3.png',
+      { n: '03', icon: 'ph-broadcast', tag: 'до 8 устройств', title: 'Мощные сетапы и стриминг', model: 'TP-FS6E', img: 'assets/slide-3.png', thumb: 'assets/cmp-tpfs6e.png',
         body: 'Больше розеток для расширенного сетапа. Для игровых ПК, нескольких мониторов, освещения, камер, микрофонов и сетевого оборудования. Световой индикатор показывает наличие заземления в розетке.' },
-      { n: '04', icon: 'ph-plug-charging', tag: '65 Вт GaN', title: 'Вертикальные станции питания', model: 'TP-VE5U5E-С', img: 'assets/slide-4.png',
+      { n: '04', icon: 'ph-plug-charging', tag: '65 Вт GaN', title: 'Вертикальные станции питания', model: 'TP-VE5U5E-С', img: 'assets/slide-4.png', thumb: 'assets/cmp-tpve5u5e.png',
         body: 'Вертикальная конструкция освобождает место на столе и обеспечивает удобный доступ ко всем розеткам и USB-разъёмам. 65 Вт GaN-зарядка для ноутбуков, Steam Deck, Nintendo Switch и смартфонов.' }
     ];
     const sceneAccents = [
@@ -900,16 +944,21 @@ class Component extends DCLogic {
           + ';height:40px;border-radius:11px;position:relative;flex-shrink:0;cursor:pointer;padding:4px;border:none;display:flex;align-items:center;justify-content:center;transition:width .38s cubic-bezier(.22,1,.36,1),background .3s ease,box-shadow .3s ease,opacity .3s ease',
         thumbStyle: 'width:100%;height:100%;object-fit:contain;pointer-events:none;filter:' + (a ? 'none' : 'grayscale(.25)'),
         titleStyle: 'margin:0;font:600 clamp(19px,2vw,25px)/1.15 Montserrat,sans-serif;letter-spacing:-.3px;color:#F0FAF9',
-        bodyStyle: 'margin:0;max-width:620px;font:400 clamp(15px,1.4vw,17px)/1.62 Roboto,sans-serif;color:#8FA3A3',
-        imgStyle: 'position:absolute;inset:0;width:100%;height:100%;opacity:' + (a ? '1' : '0') + ';transition:opacity .32s ease;pointer-events:' + (this.state.isTouch ? 'none' : (a ? 'auto' : 'none')),
+        bodyStyle: 'display:none;margin:0;max-width:620px;font:400 clamp(15px,1.4vw,17px)/1.62 Roboto,sans-serif;color:#8FA3A3',
+        imgStyle: 'position:absolute;inset:0;width:100%;height:100%;opacity:' + (a && i !== 0 ? '1' : '0') + ';transition:opacity .32s ease;pointer-events:' + (this.state.isTouch ? 'none' : (a ? 'auto' : 'none')),
         imgStyleT: 'position:absolute;inset:0;width:100%;height:100%;opacity:' + (a ? '1' : '0') + ';transition:opacity .32s ease;pointer-events:none',
-        accentStyle: 'position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);opacity:' + (a ? '1' : '0') + ';display:flex;flex-direction:column;gap:clamp(20px,3vh,34px);text-align:left;' + xf,
+        accentStyle: 'position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);opacity:' + (a && i !== 0 ? '1' : '0') + ';display:flex;flex-direction:column;gap:clamp(20px,3vh,34px);text-align:left;' + xf,
         accentStyleT: 'position:absolute;left:0;right:0;top:0;opacity:' + (a ? '1' : '0') + ';display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;gap:clamp(28px,8vw,60px);text-align:center;' + xf,
         modelStyle: 'width:100%;font:700 clamp(16px,1.5vw,20px) Montserrat,sans-serif;color:#F0FAF9;letter-spacing:-.3px;margin-bottom:clamp(8px,1.2vh,14px)',
-        textCardStyle: 'position:absolute;left:0;right:0;top:0;opacity:' + (a ? '1' : '0') + ';display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;pointer-events:none;' + xf,
+        textCardStyle: 'position:absolute;left:0;right:0;top:0;opacity:' + (a && i !== 0 ? '1' : '0') + ';display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;pointer-events:none;' + xf,
         textCardStyleT: 'position:absolute;left:0;right:0;top:0;opacity:' + (a ? '1' : '0') + ';display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;pointer-events:none;' + xf
       });
     });
+    const sc0Active = this.state.scenario === 0;
+    const dev0Base = 'width:min(1480px,58vw);aspect-ratio:1460 / 380;flex-shrink:0;will-change:transform;transition:transform 3.4s cubic-bezier(.16,1,.3,1);';
+    const scene0Style = 'position:absolute;top:0;bottom:0;left:calc(50% - 50vw);width:100vw;z-index:5;display:flex;align-items:center;justify-content:center;padding:clamp(96px,14vh,150px) 0 clamp(96px,12vh,140px);opacity:' + (sc0Active ? '1' : '0') + ';transition:opacity .4s ease;pointer-events:none;overflow:hidden';
+    const dev0RightStyle = dev0Base + 'transform:translateX(' + (this.state.connectPlayed ? '0' : '126%') + ')';
+    const dev0LeftStyle = dev0Base + 'transform:translateX(' + (this.state.connectPlayed ? '0' : '-126%') + ')';
     const scGrid = this.state.gw !== 'lg'
       ? 'position:relative;z-index:1;display:block;margin-top:24px'
       : 'position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:0;align-items:stretch';
@@ -1297,6 +1346,9 @@ class Component extends DCLogic {
       heroRef: (el) => { this._hero = el; },
       coinEdge,
       scenarios,
+      scene0Style,
+      dev0RightStyle,
+      dev0LeftStyle,
       scGrid,
       scVisualShow,
       scMobile,

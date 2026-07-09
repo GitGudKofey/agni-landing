@@ -120,7 +120,6 @@ details[data-faq][open] [data-ans]{max-height:420px;opacity:1;margin-top:14px}
       <div style="{{ heroVideoBoxStyle }}">
         <video id="hero-vid" src="assets/hero-video.webm" autoplay="" muted="" loop="" playsinline="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
         <div style="{{ heroDimStyle }}"></div>
-        <button id="hero-play-btn" class="hero-play" aria-label="Смотреть видео" style="{{ heroPlayStyle }}" style-hover="transform:translate(-50%,-50%) scale(1.2);color:#0F9F94"><svg viewBox="0 0 100 100" style="{{ heroPlaySvgStyle }}"><polygon points="35,23 81,50 35,77" fill="currentColor" stroke="currentColor" stroke-width="17" stroke-linejoin="round"></polygon></svg></button>
       </div>
 
       <!-- fullscreen video modal -->
@@ -133,7 +132,7 @@ details[data-faq][open] [data-ans]{max-height:420px;opacity:1;margin-top:14px}
       <div style="{{ heroContentStyle }}">
         <h1 style="{{ heroH1Style }}">Когда апгрейд стоит как крыло самолета,<br>железу нужна <span style="background:linear-gradient(120deg,#0F9F94,#8CFFF6);-webkit-background-clip:text;background-clip:text;color:transparent">нормальная защита</span></h1>
         <p style="{{ heroSubStyle }}">Подключай ПК и периферию в один мощный сетевой фильтр с механизмом безопасности и продуманной компоновкой для геймерского стола.</p>
-        <a href="#compare" class="agni-cta-hero" style="{{ heroBtnStyle }}">Подобрать под свой сетап</a>
+        <a href="#compare" class="agni-cta-hero" style="{{ heroBtnStyle }}">Подобрать сетевой фильтр</a>
       </div>
     </div>
   </div>
@@ -170,102 +169,115 @@ details[data-faq][open] [data-ans]{max-height:420px;opacity:1;margin-top:14px}
 </section>
 
 <!-- ============ SCENARIOS ============ -->
-<div style="position:relative;overflow:clip">
-  <div aria-hidden="true" style="position:sticky;top:0;height:100vh;margin-bottom:-100vh;width:100vw;margin-left:calc(50% - 50vw);z-index:0;pointer-events:none;overflow:hidden">
-    <div style="position:absolute;left:0;right:0;bottom:-8%;height:44%;z-index:0;pointer-events:none;background:radial-gradient(120% 100% at 50% 100%,rgba(15,159,148,.22),rgba(15,159,148,.06) 42%,transparent 72%);filter:blur(6px)"></div>
-    <div id="scenarios-grid-par" style="position:absolute;left:0;right:0;bottom:0;height:130%;will-change:transform">
-      <div style="position:absolute;left:-25%;right:-25%;top:0;bottom:0;overflow:hidden;transform:perspective(900px) rotateX(66deg);transform-origin:bottom;-webkit-mask-image:linear-gradient(to top,#000 0%,transparent 92%),linear-gradient(to right,transparent 0%,#000 14%,#000 86%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to top,#000 0%,transparent 92%),linear-gradient(to right,transparent 0%,#000 14%,#000 86%,transparent 100%);mask-composite:intersect">
-        <div style="position:absolute;left:0;right:0;top:-100%;height:300%;background-image:linear-gradient(rgba(15,159,148,.16) 6px,transparent 6px),linear-gradient(90deg,rgba(15,159,148,.16) 6px,transparent 6px);background-size:110px 110px;animation:agniGridFlow 8s linear infinite;--cell:110px;will-change:transform;filter:drop-shadow(0 0 5px rgba(15,159,148,.6))"></div>
-      </div>
-    </div>
-  </div>
-  <section id="scenarios" style="position:relative;max-width:1440px;margin:0 auto;padding:40px clamp(16px,4.2vw,32px) 40px">
-  <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;max-width:820px;margin:0 auto">
-    <h2 style="margin:0;font:700 clamp(24px,4.6vw,46px)/1.12 Montserrat,sans-serif;color:#F0FAF9;letter-spacing:-1px">Один центр питания<br>для всего сетапа</h2>
-    <p style="margin:0;max-width:520px;font:400 clamp(15px,1.6vw,18px)/1.55 Roboto,sans-serif;color:#9FB2B1">Всё подключено. Всё под контролем.</p>
-  </div>
-
-  <sc-if value="{{ scMobile }}" hint-placeholder-val="{{ false }}">
-  <div style="position:relative;z-index:1;display:block;margin-top:24px">
-    <sc-for list="{{ scenarios }}" as="s" hint-placeholder-count="4">
-      <div style="{{ s.itemStyle }}">
-        <div style="position:relative;border-radius:16px;overflow:hidden;background:transparent">
-          <image-slot id="scene-inl-{{ s.idx }}" src="{{ s.img }}" fit="contain" style="{{ s.inlineImgStyle }}" shape="rect" placeholder="Изображение сценария"></image-slot>
-        </div>
-        <span style="{{ s.badgeStyle }}">{{ s.n }}</span>
-        <h3 style="{{ s.titleStyle }}">{{ s.title }}</h3>
-        <p style="{{ s.bodyStyle }}">{{ s.body }}</p>
-      </div>
-    </sc-for>
-  </div>
-  </sc-if>
+<div style="position:relative;background:#000;overflow:clip">
+  <section id="scenarios" style="position:relative;max-width:1440px;margin:0 auto;padding:clamp(56px,8vh,88px) clamp(16px,4.2vw,32px) 40px">
   <sc-if value="{{ scTablet }}" hint-placeholder-val="{{ false }}">
-  <div style="position:relative;z-index:1;margin-top:12px">
-    <!-- pinned: image on top, cross-fading text below -->
-    <div style="position:sticky;top:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;pointer-events:none;z-index:2">
-      <div style="position:relative;height:42vh;aspect-ratio:620/1000;flex-shrink:0">
-        <div aria-hidden="true" style="position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;-webkit-mask-image:radial-gradient(78% 78% at 50% 50%,#000 40%,transparent 86%);mask-image:radial-gradient(78% 78% at 50% 50%,#000 40%,transparent 86%)">
-          <div style="position:absolute;left:50%;top:52%;width:82%;height:78%;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(15,159,148,.34),rgba(15,159,148,.12) 46%,transparent 72%);filter:blur(30px);animation:agniGlowDrift 9s ease-in-out infinite;will-change:transform,opacity"></div>
-        </div>
+  <div style="position:relative;z-index:1">
+    <div style="position:sticky;top:clamp(52px,7vh,88px);height:calc(100vh - clamp(52px,7vh,88px));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(4px,1vh,16px);padding-top:clamp(84px,13vh,140px);padding-bottom:clamp(88px,13vh,114px);pointer-events:none;z-index:2">
+      <h2 style="position:absolute;top:clamp(8px,1.6vh,20px);left:0;right:0;margin:0;text-align:center;font:700 clamp(30px,4.8vw,58px)/1.04 Montserrat,sans-serif;color:#F0FAF9;letter-spacing:-1.5px;text-wrap:balance;pointer-events:none">Один центр питания<br>для всего сетапа</h2>
+      <div style="position:relative;height:min(40vh,380px);aspect-ratio:1463 / 570;flex-shrink:0">
         <sc-for list="{{ scenarios }}" as="s" hint-placeholder-count="4">
           <image-slot id="scene-imgt-{{ s.idx }}" src="{{ s.img }}" fit="contain" style="{{ s.imgStyleT }}" shape="rect" placeholder="Изображение сценария"></image-slot>
         </sc-for>
       </div>
-      <div style="position:relative;width:100%;max-width:560px;height:250px;flex-shrink:0">
+      <div style="position:relative;width:100%;max-width:540px;height:52px;flex-shrink:0">
+        <sc-for list="{{ scenarios }}" as="s" hint-placeholder-count="4">
+          <div style="{{ s.accentStyleT }}">
+            <div style="{{ s.modelStyle }}">{{ s.model }}</div>
+            <sc-for list="{{ s.accents }}" as="a" hint-placeholder-count="2">
+              <div>
+                <div style="{{ a.preStyle }}">{{ a.pre }}</div>
+                <div style="{{ a.bigStyle }}">{{ a.big }}</div>
+                <div style="{{ a.labelStyle }}">{{ a.label }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:none;position:relative;width:100%;max-width:540px;height:clamp(96px,16vh,150px);flex-shrink:0">
         <sc-for list="{{ scenarios }}" as="s" hint-placeholder-count="4">
           <div style="{{ s.textCardStyleT }}">
-            <span style="{{ s.badgeStyle }}">{{ s.n }}</span>
             <h3 style="{{ s.titleStyle }}">{{ s.title }}</h3>
             <p style="{{ s.bodyStyle }}">{{ s.body }}</p>
           </div>
         </sc-for>
       </div>
+      <div style="position:absolute;bottom:clamp(16px,2.6vh,28px);left:0;right:0;z-index:7;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px;pointer-events:none">
+        <div style="pointer-events:auto;height:60px;display:flex;align-items:center;gap:10px;padding:0 4px;border-radius:100px;background:transparent">
+          <sc-for list="{{ scenarios }}" as="s" hint-placeholder-count="4">
+            <button type="button" onClick="{{ s.dotClick }}" title="{{ s.title }}" aria-label="{{ s.title }}" style="{{ s.dotStyle }}" style-hover="opacity:1;background:rgba(255,255,255,.1)">
+              <image-slot id="scene-thumb-t-{{ s.idx }}" src="{{ s.img }}" fit="contain" style="{{ s.thumbStyle }}" shape="rect" placeholder=""></image-slot>
+            </button>
+          </sc-for>
+        </div>
+        <a href="#compare" style="pointer-events:auto;height:60px;display:inline-flex;align-items:center;gap:14px;padding:0 8px 0 28px;border-radius:100px;background:rgba(30,30,32,.7);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);text-decoration:none;box-shadow:0 16px 40px -18px rgba(0,0,0,.55);transition:background .2s ease" style-hover="background:rgba(26,36,37,.9)">
+          <span style="font:500 16px Roboto,sans-serif;color:#F0FAF9">Сравнить фильтры</span>
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#0F9F94;color:#fff;font-size:19px;flex-shrink:0"><i class="ph ph-arrow-right"></i></span>
+        </a>
+      </div>
     </div>
-    <!-- scroll spacers drive the active scene -->
-    <div style="margin-top:-100vh">
-      <div style="height:42vh"></div>
+    <div style="margin-top:calc(clamp(52px,7vh,88px) - 100vh)">
+      <div style="height:38vh"></div>
       <sc-for list="{{ scenarios }}" as="s" hint-placeholder-count="4">
-        <div data-scene-idx="{{ s.idx }}" style="height:70vh"></div>
+        <div data-scene-idx="{{ s.idx }}" style="height:74vh"></div>
       </sc-for>
-      <div style="height:42vh"></div>
+      <div style="height:38vh"></div>
     </div>
   </div>
   </sc-if>
   <sc-if value="{{ scDesktop }}" hint-placeholder-val="{{ true }}">
-  <div style="position:relative;z-index:1;display:grid;grid-template-columns:max-content minmax(0,460px);gap:40px;justify-content:center;align-items:stretch;margin-top:0">
-    <!-- LEFT: pinned image -->
-    <div style="position:relative;order:1">
-      <div style="position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center">
-        <div style="position:relative;height:min(820px,84vh);aspect-ratio:620/1000;border-radius:26px;overflow:hidden">
-          <div aria-hidden="true" style="position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;-webkit-mask-image:radial-gradient(78% 78% at 50% 50%,#000 40%,transparent 86%);mask-image:radial-gradient(78% 78% at 50% 50%,#000 40%,transparent 86%)">
-            <div style="position:absolute;left:50%;top:52%;width:82%;height:78%;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(15,159,148,.34),rgba(15,159,148,.12) 46%,transparent 72%);filter:blur(30px);animation:agniGlowDrift 9s ease-in-out infinite;will-change:transform,opacity"></div>
-          </div>
+  <div style="position:relative;z-index:1">
+    <div style="position:sticky;top:clamp(52px,7vh,88px);height:calc(100vh - clamp(52px,7vh,88px));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(14px,2.4vh,40px);padding-top:clamp(96px,14vh,150px);padding-bottom:clamp(80px,11vh,118px);pointer-events:none;z-index:2">
+      <h2 style="position:absolute;top:clamp(10px,2vh,24px);left:0;right:0;margin:0;text-align:center;font:700 clamp(30px,4.8vw,58px)/1.04 Montserrat,sans-serif;color:#F0FAF9;letter-spacing:-1.5px;text-wrap:balance;pointer-events:none">Один центр питания<br>для всего сетапа</h2>
+      <div style="position:relative;align-self:flex-start;width:100vw;margin-left:calc(50% - 50vw);height:min(56vh,560px);display:flex;align-items:center;justify-content:flex-start;gap:clamp(24px,3vw,64px);flex-shrink:0">
+        <div style="position:relative;flex:0 0 auto;height:min(56vh,560px,calc((100vw - 360px) / 2.566));aspect-ratio:1463 / 570">
           <sc-for list="{{ scenarios }}" as="s" hint-placeholder-count="4">
             <image-slot id="scene-img-{{ s.idx }}" src="{{ s.img }}" fit="contain" style="{{ s.imgStyle }}" shape="rect" placeholder="Изображение сценария"></image-slot>
           </sc-for>
         </div>
-      </div>
-    </div>
-    <!-- RIGHT: pinned cross-fade text + scroll spacers -->
-    <div style="position:relative;order:2">
-      <div style="position:sticky;top:0;height:100vh;display:flex;align-items:center;pointer-events:none;z-index:2">
-        <div style="position:relative;width:100%">
+        <div style="position:relative;flex:0 0 auto;align-self:stretch;width:clamp(200px,15vw,240px)">
           <sc-for list="{{ scenarios }}" as="s" hint-placeholder-count="4">
-            <div style="{{ s.textCardStyle }}">
-              <span style="{{ s.badgeStyle }}">{{ s.n }}</span>
-              <h3 style="{{ s.titleStyle }}">{{ s.title }}</h3>
-              <p style="{{ s.bodyStyle }}">{{ s.body }}</p>
+            <div style="{{ s.accentStyle }}">
+              <div style="{{ s.modelStyle }}">{{ s.model }}</div>
+              <sc-for list="{{ s.accents }}" as="a" hint-placeholder-count="2">
+                <div>
+                  <div style="{{ a.preStyle }}">{{ a.pre }}</div>
+                  <div style="{{ a.bigStyle }}">{{ a.big }}</div>
+                  <div style="{{ a.labelStyle }}">{{ a.label }}</div>
+                </div>
+              </sc-for>
             </div>
           </sc-for>
         </div>
       </div>
-      <div style="margin-top:-100vh">
-        <div style="height:50vh"></div>
+      <div style="display:none;position:relative;width:100%;max-width:720px;height:clamp(96px,15vh,168px)">
         <sc-for list="{{ scenarios }}" as="s" hint-placeholder-count="4">
-          <div data-scene-idx="{{ s.idx }}" style="height:72vh"></div>
+          <div style="{{ s.textCardStyle }}">
+            <h3 style="{{ s.titleStyle }}">{{ s.title }}</h3>
+            <p style="{{ s.bodyStyle }}">{{ s.body }}</p>
+          </div>
         </sc-for>
-        <div style="height:50vh"></div>
       </div>
+      <div style="position:absolute;bottom:clamp(18px,3vh,32px);left:0;right:0;z-index:7;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px;pointer-events:none">
+        <div style="pointer-events:auto;height:60px;display:flex;align-items:center;gap:10px;padding:0 4px;border-radius:100px;background:transparent">
+          <sc-for list="{{ scenarios }}" as="s" hint-placeholder-count="4">
+            <button type="button" onClick="{{ s.dotClick }}" title="{{ s.title }}" aria-label="{{ s.title }}" style="{{ s.dotStyle }}" style-hover="opacity:1;background:rgba(255,255,255,.1)">
+              <image-slot id="scene-thumb-d-{{ s.idx }}" src="{{ s.img }}" fit="contain" style="{{ s.thumbStyle }}" shape="rect" placeholder=""></image-slot>
+            </button>
+          </sc-for>
+        </div>
+        <a href="#compare" style="pointer-events:auto;height:60px;display:inline-flex;align-items:center;gap:14px;padding:0 8px 0 28px;border-radius:100px;background:rgba(30,30,32,.7);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);text-decoration:none;box-shadow:0 16px 40px -18px rgba(0,0,0,.55);transition:background .2s ease" style-hover="background:rgba(26,36,37,.9)">
+          <span style="font:500 16px Roboto,sans-serif;color:#F0FAF9">Сравнить фильтры</span>
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#0F9F94;color:#fff;font-size:19px;flex-shrink:0"><i class="ph ph-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+    <div style="margin-top:calc(clamp(52px,7vh,88px) - 100vh)">
+      <div style="height:40vh"></div>
+      <sc-for list="{{ scenarios }}" as="s" hint-placeholder-count="4">
+        <div data-scene-idx="{{ s.idx }}" style="height:76vh"></div>
+      </sc-for>
+      <div style="height:40vh"></div>
     </div>
   </div>
   </sc-if>
@@ -273,7 +285,7 @@ details[data-faq][open] [data-ans]{max-height:420px;opacity:1;margin-top:14px}
 </div>
 
 <!-- ============ TRUST ============ -->
-<section id="trust-wall" style="position:relative;background:linear-gradient(180deg,#0B1719 0%,#060D0E 38%,#000000 100%);border-radius:clamp(32px,6vw,64px) clamp(32px,6vw,64px) 0 0;padding:80px 0 90px;overflow:hidden">
+<section id="trust-wall" style="display:none;position:relative;background:linear-gradient(180deg,#0B1719 0%,#060D0E 38%,#000000 100%);border-radius:clamp(32px,6vw,64px) clamp(32px,6vw,64px) 0 0;padding:80px 0 90px;overflow:hidden">
   <div style="position:relative;max-width:1440px;margin:0 auto;padding:0 clamp(16px,4.2vw,32px)">
     <div style="position:relative;width:100%;height:clamp(560px,52vw,880px)">
       <sc-for list="{{ wallThumbs }}" as="w" hint-placeholder-count="24">
@@ -409,17 +421,20 @@ details[data-faq][open] [data-ans]{max-height:420px;opacity:1;margin-top:14px}
     <!-- device selectors (custom dropdowns) -->
     <div style="{{ triSelStyle }}">
       <sc-for list="{{ triCols }}" as="c" hint-placeholder-count="3">
-        <div data-tri-dd="1" style="position:relative">
-          <button type="button" onClick="{{ c.onToggle }}" style="{{ c.btnStyle }}">
-            <image-slot id="tri-thumb-{{ c.key }}" src="{{ c.img }}" fit="contain" style="{{ triThumbStyle }}"></image-slot>
-            <span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ c.name }}</span>
-            <i class="ph ph-caret-down" style="{{ c.caretStyle }}"></i>
-          </button>
-          <div style="{{ c.panelStyle }}">
-            <sc-for list="{{ c.options }}" as="o" hint-placeholder-count="4">
-              <button type="button" onClick="{{ o.onClick }}" style="{{ o.rowStyle }}" style-hover="background:rgba(15,159,148,.12)!important">{{ o.name }}</button>
-            </sc-for>
+        <div data-tri-dd="1" style="display:flex;align-items:stretch">
+          <div style="position:relative;flex:1;min-width:0">
+            <button type="button" onClick="{{ c.onToggle }}" style="{{ c.btnStyle }}">
+              <image-slot id="tri-thumb-{{ c.key }}" src="{{ c.img }}" fit="contain" style="{{ triThumbStyle }}"></image-slot>
+              <span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ c.name }}</span>
+              <i class="ph ph-caret-down" style="{{ c.caretStyle }}"></i>
+            </button>
+            <div style="{{ c.panelStyle }}">
+              <sc-for list="{{ c.options }}" as="o" hint-placeholder-count="4">
+                <button type="button" onClick="{{ o.onClick }}" style="{{ o.rowStyle }}" style-hover="background:rgba(15,159,148,.12)!important">{{ o.name }}</button>
+              </sc-for>
+            </div>
           </div>
+          <a href="{{ c.url }}" target="_blank" rel="noopener noreferrer" class="buy-btn" title="Купить" aria-label="Купить" style="{{ triBuyStyle }}"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M21.5756 5.51906C21.5052 5.43481 21.4172 5.36705 21.3177 5.32056C21.2183 5.27407 21.1098 5.24998 21 5.25H5.87625L5.30625 2.11594C5.27485 1.94313 5.1838 1.78681 5.04897 1.67425C4.91414 1.56169 4.74408 1.50003 4.56844 1.5H2.25C2.05109 1.5 1.86032 1.57902 1.71967 1.71967C1.57902 1.86032 1.5 2.05109 1.5 2.25C1.5 2.44891 1.57902 2.63968 1.71967 2.78033C1.86032 2.92098 2.05109 3 2.25 3H3.9375L6.33375 16.1522C6.40434 16.5422 6.57671 16.9067 6.83344 17.2087C6.47911 17.5397 6.22336 17.9623 6.09455 18.4298C5.96575 18.8972 5.96892 19.3912 6.10371 19.8569C6.23851 20.3226 6.49966 20.7419 6.85821 21.0683C7.21676 21.3947 7.6587 21.6154 8.13502 21.7059C8.61134 21.7965 9.10344 21.7533 9.55673 21.5813C10.01 21.4092 10.4068 21.115 10.7031 20.7312C10.9994 20.3474 11.1836 19.889 11.2353 19.407C11.287 18.9249 11.2041 18.4379 10.9959 18H15.2541C15.0863 18.3513 14.9995 18.7357 15 19.125C15 19.6442 15.154 20.1517 15.4424 20.5834C15.7308 21.0151 16.1408 21.3515 16.6205 21.5502C17.1001 21.7489 17.6279 21.8008 18.1371 21.6996C18.6463 21.5983 19.114 21.3483 19.4812 20.9812C19.8483 20.614 20.0983 20.1463 20.1996 19.6371C20.3008 19.1279 20.2489 18.6001 20.0502 18.1205C19.8515 17.6408 19.5151 17.2308 19.0834 16.9424C18.6517 16.654 18.1442 16.5 17.625 16.5H8.54719C8.37155 16.5 8.20149 16.4383 8.06665 16.3257C7.93182 16.2132 7.84077 16.0569 7.80938 15.8841L7.51219 14.25H18.3872C18.9141 14.2499 19.4243 14.0649 19.8288 13.7272C20.2333 13.3896 20.5064 12.9206 20.6006 12.4022L21.7406 6.13406C21.7599 6.02572 21.7551 5.91447 21.7266 5.80818C21.6981 5.7019 21.6466 5.60319 21.5756 5.51906ZM9.75 19.125C9.75 19.3475 9.68402 19.565 9.5604 19.75C9.43679 19.935 9.26109 20.0792 9.05552 20.1644C8.84995 20.2495 8.62375 20.2718 8.40552 20.2284C8.18729 20.185 7.98684 20.0778 7.8295 19.9205C7.67217 19.7632 7.56502 19.5627 7.52162 19.3445C7.47821 19.1262 7.50049 18.9 7.58564 18.6945C7.67078 18.4889 7.81498 18.3132 7.99998 18.1896C8.18499 18.066 8.4025 18 8.625 18C8.92337 18 9.20952 18.1185 9.4205 18.3295C9.63147 18.5405 9.75 18.8266 9.75 19.125ZM18.75 19.125C18.75 19.3475 18.684 19.565 18.5604 19.75C18.4368 19.935 18.2611 20.0792 18.0555 20.1644C17.85 20.2495 17.6238 20.2718 17.4055 20.2284C17.1873 20.185 16.9868 20.0778 16.8295 19.9205C16.6722 19.7632 16.565 19.5627 16.5216 19.3445C16.4782 19.1262 16.5005 18.9 16.5856 18.6945C16.6708 18.4889 16.815 18.3132 17 18.1896C17.185 18.066 17.4025 18 17.625 18C17.9234 18 18.2095 18.1185 18.4205 18.3295C18.6315 18.5405 18.75 18.8266 18.75 19.125ZM19.125 12.1341C19.0935 12.3074 19.0021 12.464 18.8666 12.5766C18.7312 12.6893 18.5605 12.7506 18.3844 12.75H7.23938L6.14906 6.75H20.1009L19.125 12.1341Z" fill="currentColor"></path></svg></a>
         </div>
       </sc-for>
     </div>
@@ -430,9 +445,8 @@ details[data-faq][open] [data-ans]{max-height:420px;opacity:1;margin-top:14px}
           <image-slot id="{{ d.slotId }}" src="{{ d.img }}" fit="contain" style="{{ d.imgStyle }}" shape="rounded" radius="16" placeholder="Фото модели"></image-slot>
           <span style="font:700 24px Montserrat,sans-serif;color:#F0FAF9">{{ d.price }}</span>
           <span style="font:400 14px Roboto,sans-serif;color:#8FA3A3;margin-top:-8px">Сетевой фильтр {{ d.name }}</span>
-          <div style="display:flex;align-items:center;gap:18px">
-            <a href="{{ d.url }}" target="_blank" rel="noopener noreferrer" class="more-lnk" style="font:600 14px Roboto,sans-serif">Подробнее</a>
-            <a href="#compare" class="buy-btn" style="display:inline-flex;align-items:center;justify-content:center;height:42px;padding:0 26px;border-radius:10px;font:700 12px Roboto,sans-serif;letter-spacing:.06em;text-transform:uppercase">Купить</a>
+          <div style="display:flex;align-items:center;justify-content:center;width:100%;margin-top:auto;padding-top:2px">
+            <a href="{{ d.url }}" target="_blank" rel="noopener noreferrer" class="buy-btn" style="flex:0 0 34%;display:flex;align-items:center;justify-content:center;height:42px;border-radius:10px;font:700 12px Roboto,sans-serif;letter-spacing:.06em;text-transform:uppercase">Купить</a>
           </div>
         </div>
       </sc-for>
@@ -472,7 +486,7 @@ details[data-faq][open] [data-ans]{max-height:420px;opacity:1;margin-top:14px}
           </sc-for>
         </div>
         <div style="display:flex;align-items:center;margin-top:auto;padding-top:22px">
-          <a href="#compare" class="buy-btn" style="flex:1;display:flex;align-items:center;justify-content:center;height:42px;border-radius:10px;font:700 12px Roboto,sans-serif;letter-spacing:.06em;text-transform:uppercase">Купить</a>
+          <a href="{{ m.url }}" target="_blank" rel="noopener noreferrer" class="buy-btn" style="flex:1;display:flex;align-items:center;justify-content:center;height:42px;border-radius:10px;font:700 12px Roboto,sans-serif;letter-spacing:.06em;text-transform:uppercase">Купить</a>
         </div>
       </div>
     </sc-for>
@@ -504,9 +518,8 @@ details[data-faq][open] [data-ans]{max-height:420px;opacity:1;margin-top:14px}
           <image-slot id="{{ d.slotId }}" src="{{ d.img }}" fit="contain" style="width:100%;aspect-ratio:1/1;height:auto;pointer-events:none" shape="rounded" radius="16" placeholder="Фото модели"></image-slot>
           <span style="font:700 22px Montserrat,sans-serif;color:#F0FAF9">{{ d.price }}</span>
           <span style="font:400 12px Roboto,sans-serif;color:#8FA3A3;margin-top:-6px">Сетевой фильтр {{ d.name }}</span>
-          <div style="display:flex;flex-direction:column;align-items:center;gap:14px;width:100%">
-            <a href="{{ d.url }}" target="_blank" rel="noopener noreferrer" class="more-lnk" style="font:600 13px Roboto,sans-serif">Подробнее</a>
-            <a href="#compare" class="buy-btn" style="align-self:stretch;display:flex;align-items:center;justify-content:center;height:42px;border-radius:10px;font:700 12px Roboto,sans-serif;letter-spacing:.06em;text-transform:uppercase">Купить</a>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:14px;width:100%;margin-top:auto">
+            <a href="{{ d.url }}" target="_blank" rel="noopener noreferrer" class="buy-btn" style="align-self:stretch;display:flex;align-items:center;justify-content:center;height:42px;border-radius:10px;font:700 12px Roboto,sans-serif;letter-spacing:.06em;text-transform:uppercase">Купить</a>
           </div>
         </div>
       </sc-for>
@@ -812,39 +825,61 @@ class Component extends DCLogic {
     if (this._tiltRAF) cancelAnimationFrame(this._tiltRAF);
   }
 
+  _goToScene(i) {
+    const el = document.querySelector('[data-scene-idx="' + i + '"]');
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const target = window.scrollY + r.top - (window.innerHeight / 2 - r.height / 2);
+    window.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
+  }
+
   renderVals() {
     const variant = this.props.heroVariant ?? 'immersive';
     const base = [
-      { n: '01', icon: 'ph-sliders-horizontal', tag: 'групповое питание', title: 'Умное управление сетапом', img: 'assets/scene-1.png',
+      { n: '01', icon: 'ph-sliders-horizontal', tag: 'групповое питание', title: 'Умное управление сетапом', model: 'TP-FI3U5E-C', img: 'assets/slide-1.png',
         body: 'Отключайте монитор, колонки или консоль отдельно, не вынимая вилок из розеток. Или разделите сетап на игровые и периферийные устройства и управляйте группами оборудования.' },
-      { n: '02', icon: 'ph-game-controller', tag: 'до 6 устройств', title: 'Игровые и консольные сетапы', img: 'assets/scene-2.png',
+      { n: '02', icon: 'ph-game-controller', tag: 'до 6 устройств', title: 'Игровые и консольные сетапы', model: 'TP-FS8E', img: 'assets/slide-2.png',
         body: 'Подключите ПК или консоль, монитор, роутер, колонки и зарядные устройства в одном месте. Контроль правильного заземления — безопасность игрового места. Версии с USB и без USB.' },
-      { n: '03', icon: 'ph-broadcast', tag: 'до 8 устройств', title: 'Мощные сетапы и стриминг', img: 'assets/scene-3.png',
+      { n: '03', icon: 'ph-broadcast', tag: 'до 8 устройств', title: 'Мощные сетапы и стриминг', model: 'TP-FS6E', img: 'assets/slide-3.png',
         body: 'Больше розеток для расширенного сетапа. Для игровых ПК, нескольких мониторов, освещения, камер, микрофонов и сетевого оборудования. Световой индикатор показывает наличие заземления в розетке.' },
-      { n: '04', icon: 'ph-plug-charging', tag: '65 Вт GaN', title: 'Вертикальные станции питания', img: 'assets/scene-4.png',
+      { n: '04', icon: 'ph-plug-charging', tag: '65 Вт GaN', title: 'Вертикальные станции питания', model: 'TP-VE5U5E-С', img: 'assets/slide-4.png',
         body: 'Вертикальная конструкция освобождает место на столе и обеспечивает удобный доступ ко всем розеткам и USB-разъёмам. 65 Вт GaN-зарядка для ноутбуков, Steam Deck, Nintendo Switch и смартфонов.' }
+    ];
+    const sceneAccents = [
+      [ { big: '5', label: 'кнопок управления' }, { big: '2', label: 'группы питания' } ],
+      [ { pre: 'до', big: '6', label: 'устройств' }, { big: 'USB', label: 'версии с портами и без' } ],
+      [ { pre: 'до', big: '8', label: 'устройств' }, { big: 'LED', label: 'индикатор заземления' } ],
+      [ { big: '65 Вт', label: 'GaN для ноутбуков' }, { big: '20 Вт', label: 'быстрая зарядка' } ]
     ];
     const scenarios = base.map((s, i) => {
       const a = i === this.state.scenario;
-      const collapsed = this.state.gw !== 'lg';
+      const accents = (sceneAccents[i] || []).map((ac) => ({
+        pre: ac.pre || '',
+        big: ac.big,
+        label: ac.label,
+        preStyle: 'font:400 18px Roboto,sans-serif;color:#7C9190;margin-bottom:3px' + (ac.pre ? '' : ';display:none'),
+        bigStyle: 'font:700 clamp(30px,4.4vw,50px)/1 Montserrat,sans-serif;color:#0F9F94;letter-spacing:-1px;white-space:nowrap',
+        labelStyle: 'font:400 18px Roboto,sans-serif;color:#8FA3A3;margin-top:6px;line-height:1.3'
+      }));
+      const xf = 'transition:opacity .32s ease;will-change:opacity';
       return Object.assign({}, s, {
         idx: i,
-        showInlineImg: collapsed,
-        itemStyle: collapsed
-          ? 'display:flex;flex-direction:column;gap:16px;padding:24px 22px;border-radius:22px;border:1px solid rgba(15,159,148,.16);background:radial-gradient(135% 100% at 50% 0%,rgba(15,26,28,.92),rgba(5,9,10,.92));margin-bottom:18px;opacity:1'
-          : 'min-height:54vh;display:flex;flex-direction:column;justify-content:center;gap:18px;padding:20px 0;opacity:' + (a ? '1' : '.34') + ';transition:opacity .45s ease',
-        badgeStyle: 'display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;font:700 16px Montserrat,sans-serif;transition:.35s;'
-          + 'border:1px solid ' + (a || collapsed ? 'rgba(15,159,148,.6)' : 'rgba(255,255,255,.1)') + ';'
-          + 'background:' + (a || collapsed ? 'rgba(15,159,148,.12)' : 'rgba(255,255,255,.03)') + ';'
-          + 'color:' + (a || collapsed ? '#0F9F94' : '#5E7574') + ';'
-          + 'box-shadow:' + (a || collapsed ? '0 0 24px rgba(15,159,148,.3)' : 'none'),
-        titleStyle: 'margin:0;font:700 clamp(20px,4vw,38px)/1.08 Montserrat,sans-serif;letter-spacing:-.5px;color:#F0FAF9',
-        bodyStyle: 'margin:0;max-width:440px;font:400 ' + (collapsed ? '15px' : '16px') + '/1.6 Roboto,sans-serif;color:#9FB2B1',
-        inlineImgStyle: 'width:100%;aspect-ratio:16/10;height:auto;border-radius:16px',
-        imgStyle: 'position:absolute;inset:0;width:100%;height:100%;opacity:' + (a ? '1' : '0') + ';transform:scale(' + (a ? '1' : '.92') + ');transition:opacity .55s ease,transform .7s cubic-bezier(.22,1,.36,1);pointer-events:' + (this.state.isTouch ? 'none' : (a ? 'auto' : 'none')),
-        imgStyleT: 'position:absolute;inset:0;width:100%;height:100%;opacity:' + (a ? '1' : '0') + ';transform:scale(' + (a ? '1' : '.92') + ');transition:opacity .55s ease,transform .7s cubic-bezier(.22,1,.36,1);pointer-events:none',
-        textCardStyle: 'position:absolute;left:0;right:0;top:50%;transform:translateY(calc(-50% + ' + (a ? '0px' : '22px') + '));opacity:' + (a ? '1' : '0') + ';transition:opacity .5s ease,transform .65s cubic-bezier(.22,1,.36,1);pointer-events:' + (a ? 'auto' : 'none') + ';display:flex;flex-direction:column;gap:18px;will-change:opacity,transform',
-        textCardStyleT: 'position:absolute;left:0;right:0;top:50%;transform:translateY(calc(-50% + ' + (a ? '0px' : '22px') + '));opacity:' + (a ? '1' : '0') + ';transition:opacity .5s ease,transform .65s cubic-bezier(.22,1,.36,1);pointer-events:none;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;will-change:opacity,transform'
+        accents: accents,
+        dotClick: () => this._goToScene(i),
+        dotStyle: (a
+          ? 'width:56px;background:rgba(15,159,148,.16);box-shadow:0 0 0 1.5px #0F9F94,0 0 16px rgba(15,159,148,.45);opacity:1'
+          : 'width:40px;background:rgba(255,255,255,.05);box-shadow:none;opacity:.5')
+          + ';height:40px;border-radius:11px;position:relative;flex-shrink:0;cursor:pointer;padding:4px;border:none;display:flex;align-items:center;justify-content:center;transition:width .38s cubic-bezier(.22,1,.36,1),background .3s ease,box-shadow .3s ease,opacity .3s ease',
+        thumbStyle: 'width:100%;height:100%;object-fit:contain;pointer-events:none;filter:' + (a ? 'none' : 'grayscale(.25)'),
+        titleStyle: 'margin:0;font:600 clamp(19px,2vw,25px)/1.15 Montserrat,sans-serif;letter-spacing:-.3px;color:#F0FAF9',
+        bodyStyle: 'margin:0;max-width:620px;font:400 clamp(15px,1.4vw,17px)/1.62 Roboto,sans-serif;color:#8FA3A3',
+        imgStyle: 'position:absolute;inset:0;width:100%;height:100%;opacity:' + (a ? '1' : '0') + ';transition:opacity .32s ease;pointer-events:' + (this.state.isTouch ? 'none' : (a ? 'auto' : 'none')),
+        imgStyleT: 'position:absolute;inset:0;width:100%;height:100%;opacity:' + (a ? '1' : '0') + ';transition:opacity .32s ease;pointer-events:none',
+        accentStyle: 'position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);opacity:' + (a ? '1' : '0') + ';display:flex;flex-direction:column;gap:clamp(20px,3vh,34px);text-align:left;' + xf,
+        accentStyleT: 'position:absolute;left:0;right:0;top:0;opacity:' + (a ? '1' : '0') + ';display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;gap:clamp(28px,8vw,60px);text-align:center;' + xf,
+        modelStyle: 'width:100%;font:700 clamp(16px,1.5vw,20px) Montserrat,sans-serif;color:#F0FAF9;letter-spacing:-.3px;margin-bottom:clamp(8px,1.2vh,14px)',
+        textCardStyle: 'position:absolute;left:0;right:0;top:0;opacity:' + (a ? '1' : '0') + ';display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;pointer-events:none;' + xf,
+        textCardStyleT: 'position:absolute;left:0;right:0;top:0;opacity:' + (a ? '1' : '0') + ';display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;pointer-events:none;' + xf
       });
     });
     const scGrid = this.state.gw !== 'lg'
@@ -907,14 +942,14 @@ class Component extends DCLogic {
 
     // COMPARE — compact model cards
     const compareDefs = [
-      { icon: 'ph-plugs', label: 'Количество розеток', vals: ['5', '10', '6', '6', '8', '8', '5', '12'] },
-      { icon: 'ph-lightning', label: 'Номинальная суммарная мощность', vals: ['4000 Вт', '4000 Вт', '4000 Вт', '4000 Вт', '4000 Вт', '4000 Вт', '4000 Вт', '4000 Вт'] },
-      { icon: 'ph-gauge', label: 'Ток нагрузки', vals: ['16 А', '16 А', '16 А', '16 А', '16 А', '16 А', '16 А', '16 А'] },
-      { icon: 'ph-usb', label: 'USB Type A', vals: ['2', '3', '—', '3', '—', '3', '2', '3'] },
-      { icon: 'ph-usb', label: 'USB Type C', vals: ['1', '1', '—', '1', '—', '1', '3', '2'] },
-      { icon: 'ph-plug-charging', label: 'Общая мощность USB разъёмов', vals: ['5 Вт / 20 Вт', '5 Вт / 20 Вт', '—', '5 Вт / 20 Вт', '—', '5 Вт / 20 Вт', '18 Вт / 65 Вт', '5 Вт / 65 Вт GaN / 15 Вт беспроводная зарядка'] },
-      { icon: 'ph-ruler', label: 'Длина кабеля', vals: ['2 м / 3 м / 5 м', '2 м / 3 м / 5 м', '2 м / 3 м / 5 м', '2 м / 3 м / 5 м', '2 м / 3 м / 5 м', '2 м / 3 м / 5 м', '2 м', '2 м'] },
-      { icon: 'ph-cube', label: 'Габариты', vals: ['320×76×40 мм', '330×108×42 мм', '236×101×40 мм', '236×101×40 мм', '280×101×39 мм', '280×101×40 мм', '91.5×91.5×109 мм', '125×125×200 мм'] }
+      { icon: 'ph-plugs', label: 'Количество розеток', vals: ['5', '10', '6', '6', '8', '8', '5', '12', '12'] },
+      { icon: 'ph-lightning', label: 'Номинальная суммарная мощность', vals: ['4000 Вт', '4000 Вт', '4000 Вт', '4000 Вт', '4000 Вт', '4000 Вт', '4000 Вт', '4000 Вт', '4000 Вт'] },
+      { icon: 'ph-gauge', label: 'Ток нагрузки', vals: ['16 А', '16 А', '16 А', '16 А', '16 А', '16 А', '16 А', '16 А', '16 А'] },
+      { icon: 'ph-usb', label: 'USB Type A', vals: ['2', '3', '—', '3', '—', '3', '2', '3', '3'] },
+      { icon: 'ph-usb', label: 'USB Type C', vals: ['1', '1', '—', '1', '—', '1', '3', '2', '2'] },
+      { icon: 'ph-plug-charging', label: 'Общая мощность USB разъёмов', vals: ['5 Вт / 20 Вт', '5 Вт / 20 Вт', '—', '5 Вт / 20 Вт', '—', '5 Вт / 20 Вт', '18 Вт / 65 Вт', '5 Вт / 65 Вт GaN / 15 Вт беспроводная зарядка', '5 Вт / 65 Вт GaN / 15 Вт беспроводная зарядка'] },
+      { icon: 'ph-ruler', label: 'Длина кабеля', vals: ['2 м / 3 м / 5 м', '2 м / 3 м / 5 м', '2 м / 3 м / 5 м', '2 м / 3 м / 5 м', '2 м / 3 м / 5 м', '2 м / 3 м / 5 м', '2 м', '2 м', '2 м'] },
+      { icon: 'ph-cube', label: 'Габариты', vals: ['320×76×40 мм', '330×108×42 мм', '236×101×40 мм', '236×101×40 мм', '280×101×39 мм', '280×101×40 мм', '91.5×91.5×109 мм', '125×125×200 мм', '125×125×200 мм'] }
     ];
     const keyIdx = [0, 1, 5, 6];
 
@@ -995,7 +1030,8 @@ class Component extends DCLogic {
       { name: 'TP-FS8E', price: '3 573 ₽', img: 'assets/cmp-fs8e.png', url: 'https://agni-tech.ru/catalog/setevye-filtrs-horizontalny/TP-FS8E-3m-black/' },
       { name: 'TP-FS4U8E-PD', price: '3 743 ₽', img: 'assets/cmp-fs4u8e.png', url: 'https://agni-tech.ru/catalog/setevye-filtrs-horizontalny/tp-fs4u8e-pd-2m-black/' },
       { name: 'TP-VE5U5E-С', price: '5 375 ₽', img: 'assets/cmp-tpve5u5e.png', url: 'https://agni-tech.ru/catalog/setevye-filtrs-bashni/tp-ve5u5e-c-2m-black/' },
-      { name: 'TP-VG6U12E-C-W', price: '8 545 ₽', img: 'assets/cmp-vg6u12e.png', url: 'https://agni-tech.ru/catalog/setevye-filtrs-bashni/tp-vg6u12e-c-w-2m-black/' }
+      { name: 'TP-VG6U12E-C-W black', price: '8 545 ₽', img: 'assets/cmp-vg6u12e.png', url: 'https://agni-tech.ru/catalog/setevye-filtrs-bashni/tp-vg6u12e-c-w-2m-black/' },
+      { name: 'TP-VG6U12E-C-W grey-white', price: '8 545 ₽', img: 'assets/cmp-vg6u12e-gw.png', url: 'https://agni-tech.ru/catalog/setevye-filtrs-bashni/tp-vg6u12e-c-w-2m-grey-white/' }
     ].map((m, mi) => Object.assign({}, m, {
       idx: mi,
       cardStyle: 'display:flex;flex-direction:column;border-radius:20px;background:radial-gradient(125% 125% at 50% 0%,#101B1D,#05090A 70%);padding:24px' + cmpCardExtra,
@@ -1074,6 +1110,7 @@ class Component extends DCLogic {
     const triSelStyle = 'position:sticky;top:' + (this.state.navVisible ? '92px' : '14px') + ';z-index:5;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin:0;padding:14px;background:rgba(10,18,20,.28);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-radius:20px;transition:top .35s ease';
     const triStuck = this.state.triStuck;
     const triThumbStyle = 'width:' + (triStuck ? '34px' : '0px') + ';height:34px;object-fit:contain;opacity:' + (triStuck ? '1' : '0') + ';margin-right:' + (triStuck ? '12px' : '0px') + ';flex-shrink:0;pointer-events:none;transition:opacity .3s ease,width .3s ease,margin .3s ease';
+    const triBuyStyle = 'display:flex;align-items:center;justify-content:center;align-self:stretch;aspect-ratio:1;flex-shrink:0;overflow:hidden;text-decoration:none;border-radius:12px;font-size:19px;max-width:' + (triStuck ? '90px' : '0px') + ';opacity:' + (triStuck ? '1' : '0') + ';margin-left:' + (triStuck ? '10px' : '0px') + ';transition:max-width .3s ease,opacity .3s ease,margin .3s ease';
     const triCols = [
       { key: 'A', cur: this.state.triA, others: [this.state.triB, this.state.triC] },
       { key: 'B', cur: this.state.triB, others: [this.state.triA, this.state.triC] },
@@ -1086,6 +1123,7 @@ class Component extends DCLogic {
         key: col.key,
         name: dev.name,
         img: dev.img,
+        url: dev.url,
         onToggle: () => this.setState({ triOpen: open ? null : col.key }),
         btnStyle: 'display:flex;align-items:center;width:100%;background:rgba(255,255,255,.03);border:1px solid ' + (open ? 'rgba(15,159,148,.7)' : 'rgba(15,159,148,.32)') + ';border-radius:12px;padding:15px 16px 15px 18px;cursor:pointer;font:600 15px Roboto,sans-serif;color:#E4F3F2;text-align:left;transition:border-color .2s ease',
         caretStyle: 'font-size:16px;color:#0F9F94;flex-shrink:0;margin-left:10px;transition:transform .25s ease;transform:rotate(' + (open ? '180deg' : '0deg') + ')',
@@ -1178,6 +1216,7 @@ class Component extends DCLogic {
       cmpTrio,
       triSelStyle,
       triThumbStyle,
+      triBuyStyle,
       triCols,
       triDevices,
       triOptsA,
